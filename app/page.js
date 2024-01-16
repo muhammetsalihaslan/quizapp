@@ -17,7 +17,7 @@ export default function Home() {
           Pick a subject to get started
         </div>
       </div>
-      <div className="flex flex-col mt-[5rem]  lg:w-1/3 lg:ms-[3rem]">
+      <div className="flex flex-col mt-[5rem]  lg:w-2/5 lg:ms-[3rem]">
         <QuizLink
           src="/images/react-svgrepo-com.svg"
           href="/react"
