@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex flex-col lg:flex-row lg:justify-center  p-5  h-fit w-screen lg:gap-x-[5rem] lg:mt-[3rem] ">
       <div className=" mt-[5rem]  ">
-        <div className="flex lg:flex-col">
+        <div className="md:flex justify-center  lg:justify-normal lg:flex-col">
           <div className="text-[45px] lg:text-[60px] text-[#313E51] font-normal">
             Welcome to the
           </div>
