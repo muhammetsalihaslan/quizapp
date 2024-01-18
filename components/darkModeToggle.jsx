@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
         <Image src="/images/icon-sun-dark.svg" width={30} height={30} />
       </div>
       <div className="border w-[60px] rounded-full bg-[#A729F5] flex items-center cursor-pointer">
-        <div className="border bg-white p-1 h-[20px] w-[20px] rounded-full ms-1"></div>
+        <div className="border bg-white  h-[20px] w-[20px] rounded-full ms-1"></div>
       </div>
       <div>
         <Image src="/images/icon-moon-dark.svg" width={30} height={30} />
