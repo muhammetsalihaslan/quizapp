@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
-import QuizLink from "@/components/quizLink";
+import data from "@/public/data/data.json";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,26 +22,17 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col mt-[5rem]  lg:w-2/5 lg:ms-[3rem]">
-          <QuizLink
-            src="/images/react-svgrepo-com.svg"
-            href="/react"
-            title="REACT"
-          />
-          <QuizLink
-            src="/images/nextjs-icon-svgrepo-com.svg"
-            href="/nextjs"
-            title="NEXTjs"
-          />
-          <QuizLink
-            src="/images/icon-js.svg"
-            href="/javascript"
-            title="JavaScript"
-          />
-          <QuizLink
-            src="/images/tailwind-css-svgrepo-com.svg"
-            href="/tailwindcss"
-            title="tailwindcss"
-          />
+          {data.quizzes.map((quiz) => (
+            <Link
+              href={quiz.title.toLowerCase()}
+              className="flex h-[68px] p-1 items-center gap-x-[5rem] mt-[2rem] rounded-md shadow-md bg-[#FFFFFF] cursor-pointer"
+            >
+              <Image src={quiz.icon} width={50} height={50} className="ms-5" />
+              <div className="text-xl font-bold text-[#313E51]">
+                {quiz.title}
+              </div>
+            </Link>
+          ))}
         </div>
       </main>
     </>
