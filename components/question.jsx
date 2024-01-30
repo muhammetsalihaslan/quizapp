@@ -1,17 +1,19 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import data from "../public/data/data.json";
 
-const Question = () => {
+const Question = ({ question }) => {
+  const [noq, setNoq] = useState(0);
   return (
     <div className="flex justify-center h-screen mt-[4rem] ">
-      {data.quizzes.map((quiz) => (
+      {question.map((quiz) => (
         <div className="w-3/4 justify-between flex h-3/4 flex-row mt-[3rem]  ">
           <div className=" w-1/2 flex flex-col justify-between ">
             <div className="flex flex-col gap-y-8">
               <p className="italic text-[#626C7F]">
-                Question 1 of {quiz.questions.length}
+                Question {noq + 1} of {quiz.questions.length}
               </p>
-              <p className="text-[36px] font-bold">{quiz.questions.question}</p>
+              <p className="text-[36px] font-bold">{}</p>
             </div>
             <div className="border border-black w-[500px] rounded-full h-[15px]"></div>
           </div>
