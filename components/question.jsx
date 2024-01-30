@@ -4,16 +4,19 @@ import data from "../public/data/data.json";
 
 const Question = ({ question }) => {
   const [noq, setNoq] = useState(0);
+
   return (
     <div className="flex justify-center h-screen mt-[4rem] ">
-      {question.map((quiz) => (
+      {question.map((quiz, index) => (
         <div className="w-3/4 justify-between flex h-3/4 flex-row mt-[3rem]  ">
           <div className=" w-1/2 flex flex-col justify-between ">
             <div className="flex flex-col gap-y-8">
               <p className="italic text-[#626C7F]">
                 Question {noq + 1} of {quiz.questions.length}
               </p>
-              <p className="text-[36px] font-bold">{}</p>
+              <p className="text-[36px] font-bold">
+                {quiz.questions[noq]?.question}
+              </p>
             </div>
             <div className="border border-black w-[500px] rounded-full h-[15px]"></div>
           </div>
