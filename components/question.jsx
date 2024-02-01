@@ -32,12 +32,18 @@ const Question = ({ question }) => {
                   <li
                     className={`${
                       selected === option
-                        ? "w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center border-2 border-purple-600 bg-white cursor-pointer p-3 mb-2"
+                        ? "w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center border-2 border-[#A729F5] bg-white cursor-pointer p-3 mb-2"
                         : "w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center border bg-white cursor-pointer p-3 mb-2"
                     }`}
                     onClick={() => handleOptionClick(option)}
                   >
-                    <div className="ms-5  bg-[#F4F6FA]  text-[#626C7F] w-[40px] flex justify-center text-[28px] font-bold rounded-lg">
+                    <div
+                      className={`${
+                        selected === option
+                          ? "ms-5  bg-[#A729F5]  text-[white] w-[40px] flex justify-center text-[28px] font-bold rounded-lg"
+                          : "ms-5  bg-[#F4F6FA]  text-[#626C7F] w-[40px] flex justify-center text-[28px] font-bold rounded-lg"
+                      }`}
+                    >
                       {letter}
                     </div>
                     <div className="text-[28px] text-[black] font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
