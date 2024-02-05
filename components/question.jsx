@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 
 const Question = ({ question }) => {
-  const [noq, setNoq] = useState(0);
+  const [noq, setNoq] = useState(5);
   const [selected, setSelected] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleOptionClick = (option) => {
     setSelected(option);
@@ -27,6 +28,7 @@ const Question = ({ question }) => {
           <div>
             {quiz.questions[noq].options.map((option, index) => {
               const letter = String.fromCharCode(65 + index);
+              const isAnswer = quiz.questions[noq].answer;
               return (
                 <ul key={index}>
                   <li
