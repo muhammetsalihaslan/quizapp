@@ -2,12 +2,19 @@
 import React, { useState } from "react";
 
 const Question = ({ question }) => {
-  const [noq, setNoq] = useState(5);
+  const [noq, setNoq] = useState(0);
   const [selected, setSelected] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showNextQuestion, setShowNextQuestion] = useState(false);
+  const [error, setError] = useState();
 
   const handleOptionClick = (option) => {
     setSelected(option);
+  };
+
+  const handleSubmit = () => {
+    setShowNextQuestion(true);
+    setIsSubmitted(true);
   };
 
   return (
@@ -29,13 +36,20 @@ const Question = ({ question }) => {
             {quiz.questions[noq].options.map((option, index) => {
               const letter = String.fromCharCode(65 + index);
               const isAnswer = quiz.questions[noq].answer;
+              const isCorrect = isSubmitted && selected === option && isAnswer;
               return (
                 <ul key={index}>
                   <li
-                    className={`${
+                    className={`w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center  bg-white cursor-pointer p-3 mb-2 ${
                       selected === option
-                        ? "w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center border-2 border-[#A729F5] bg-white cursor-pointer p-3 mb-2"
-                        : "w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center border bg-white cursor-pointer p-3 mb-2"
+                        ? " border-2 border-[#A729F5]"
+                        : " border"
+                    } ${
+                      isCorrect
+                        ? " border-2 border-[#26D782]"
+                        : isSubmitted && selected === option
+                        ? "border-[#e74c3c]"
+                        : ""
                     }`}
                     onClick={() => handleOptionClick(option)}
                   >
@@ -55,9 +69,18 @@ const Question = ({ question }) => {
                 </ul>
               );
             })}
-            <button className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold">
-              Submit
-            </button>
+            {!showNextQuestion ? (
+              <button
+                className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            ) : (
+              <button className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold">
+                Next Question
+              </button>
+            )}
           </div>
         </div>
       ))}
