@@ -1,18 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Question = ({ question }) => {
   const [noq, setNoq] = useState(0);
   const [selected, setSelected] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showNextQuestion, setShowNextQuestion] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
+
+  const errorRef = useRef(null);
+
+  useEffect(() => {
+    if (errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [error]);
 
   const handleOptionClick = (option) => {
     setSelected(option);
   };
 
   const handleSubmit = () => {
+    if (!selected) {
+      setError(true);
+      setTimeout(() => setError(false), 2000);
+      return;
+    }
     setShowNextQuestion(true);
     setIsSubmitted(true);
   };
@@ -93,6 +106,16 @@ const Question = ({ question }) => {
               <button className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold">
                 Next Question
               </button>
+            )}
+            {error ? (
+              <div
+                ref={errorRef}
+                className="text-[#EE5454]  flex justify-center mt-5 font-bold text-[20px]"
+              >
+                Please select an answer
+              </div>
+            ) : (
+              ""
             )}
           </div>
         </div>
