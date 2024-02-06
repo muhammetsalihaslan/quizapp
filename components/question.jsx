@@ -44,20 +44,14 @@ const Question = ({ question }) => {
                       selected === option
                         ? " border-2 border-[#A729F5]"
                         : " border"
-                    } ${
-                      isCorrect
-                        ? " border-2 border-[#26D782]"
-                        : isSubmitted && selected === option
-                        ? "border-[#e74c3c]"
-                        : ""
                     }`}
                     onClick={() => handleOptionClick(option)}
                   >
                     <div
-                      className={`${
+                      className={`ms-5 w-[40px] flex justify-center text-[28px] font-bold rounded-l ${
                         selected === option
-                          ? "ms-5  bg-[#A729F5]  text-[white] w-[40px] flex justify-center text-[28px] font-bold rounded-lg"
-                          : "ms-5  bg-[#F4F6FA]  text-[#626C7F] w-[40px] flex justify-center text-[28px] font-bold rounded-lg"
+                          ? "bg-[#A729F5]  text-[white]"
+                          : "bg-[#F4F6FA]  text-[#626C7F] "
                       }`}
                     >
                       {letter}
