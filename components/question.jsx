@@ -31,6 +31,13 @@ const Question = ({ question }) => {
     setIsSubmitted(true);
   };
 
+  const handleNext = () => {
+    setIsSubmitted(false);
+    setSelected(null);
+    setShowNextQuestion(false);
+    setNoq(noq + 1);
+  };
+
   return (
     <div className="flex justify-center h-screen mt-[4rem] ">
       {question.map((quiz) => (
@@ -82,7 +89,7 @@ const Question = ({ question }) => {
                           ? `ms-5 w-[40px] text-[#626C7F] flex justify-center text-[28px] font-bold rounded-l ${bgColor}`
                           : `ms-5 w-[40px] text-[#626C7F]  flex justify-center text-[28px] font-bold rounded-l  ${
                               isSelected
-                                ? "  bg-[#A729F5] text-[white]"
+                                ? "bg-[#A729F5] text-[white]"
                                 : "bg-[#F4F6FA]"
                             }`
                       }
@@ -131,7 +138,10 @@ const Question = ({ question }) => {
                 Submit
               </button>
             ) : (
-              <button className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold">
+              <button
+                className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+                onClick={handleNext}
+              >
                 Next Question
               </button>
             )}
