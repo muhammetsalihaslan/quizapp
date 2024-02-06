@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
 const Question = ({ question }) => {
@@ -60,7 +61,7 @@ const Question = ({ question }) => {
                   ? isAnswer
                     ? "border-2 border-[#26D782]"
                     : "border-2 border-[#EE5454]"
-                  : "border-white";
+                  : "";
               return (
                 <ul key={index}>
                   <li
@@ -91,6 +92,33 @@ const Question = ({ question }) => {
                     <div className="text-[28px] text-[black] font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
                       {option}
                     </div>
+                    {isSubmitted && isSelected ? (
+                      isAnswer ? (
+                        <div>
+                          <Image
+                            src="./images/icon-correct.svg"
+                            width={50}
+                            height={50}
+                          />
+                        </div>
+                      ) : (
+                        <div>
+                          <Image
+                            src="./images/icon-incorrect.svg"
+                            width={50}
+                            height={50}
+                          />
+                        </div>
+                      )
+                    ) : isSubmitted && isAnswer ? (
+                      <div>
+                        <Image
+                          src="./images/icon-correct.svg"
+                          width={50}
+                          height={50}
+                        />{" "}
+                      </div>
+                    ) : null}
                   </li>
                 </ul>
               );
