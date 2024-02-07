@@ -8,6 +8,7 @@ const Question = ({ question }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showNextQuestion, setShowNextQuestion] = useState(false);
   const [error, setError] = useState(false);
+  const [progressBar, setProgressBar] = useState(10);
 
   const errorRef = useRef(null);
 
@@ -51,7 +52,13 @@ const Question = ({ question }) => {
                 {quiz.questions[noq].question}
               </p>
             </div>
-            <div className="border border-black w-[500px] rounded-full h-[15px] "></div>
+            <div className="border w-[500px] rounded-full  flex items-center ">
+              <span
+                className="bg-[#A729F5] h-[10px] rounded-full 
+                "
+                style={{ width: `${progressBar}%` }}
+              ></span>
+            </div>
           </div>
           <div>
             {quiz.questions[noq].options.map((option, index) => {
