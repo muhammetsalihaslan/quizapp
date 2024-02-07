@@ -37,13 +37,14 @@ const Question = ({ question }) => {
     setSelected(null);
     setShowNextQuestion(false);
     setNoq(noq + 1);
+    setProgressBar(progressBar + 10);
   };
 
   return (
     <div className="flex justify-center h-screen mt-[4rem] ">
       {question.map((quiz) => (
         <div className="w-3/4 justify-between flex h-3/4 flex-row ">
-          <div className=" w-1/2 flex flex-col justify-between ">
+          <div className=" w-1/2 flex flex-col lg:gap-y-11 ">
             <div className="flex flex-col gap-y-8">
               <p className="italic text-[#626C7F]">
                 Question {noq + 1} of {quiz.questions.length}
@@ -52,7 +53,7 @@ const Question = ({ question }) => {
                 {quiz.questions[noq].question}
               </p>
             </div>
-            <div className="border w-[500px] rounded-full  flex items-center ">
+            <div className="border w-[500px] rounded-full  flex items-center bg-white ">
               <span
                 className="bg-[#A729F5] h-[10px] rounded-full 
                 "
