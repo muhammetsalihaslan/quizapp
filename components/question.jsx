@@ -12,6 +12,8 @@ const Question = ({ question, imagesrc, title }) => {
   const [progressBar, setProgressBar] = useState(10);
   const [score, setScore] = useState(0);
 
+  const numberOfQuestions = question.map((quiz) => quiz.questions.length);
+
   const errorRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ const Question = ({ question, imagesrc, title }) => {
       setTimeout(() => setError(false), 2000);
       return;
     }
+
     setShowNextQuestion(true);
     setIsSubmitted(true);
   };
@@ -45,7 +48,12 @@ const Question = ({ question, imagesrc, title }) => {
   return (
     <>
       {Number(noq) > 9 ? (
-        <ScorePage isrc={imagesrc} title={title} />
+        <ScorePage
+          isrc={imagesrc}
+          title={title}
+          score={score}
+          numberOfQuestion={numberOfQuestions}
+        />
       ) : (
         <div className="flex justify-center h-screen mt-[4rem] ">
           {question.map((quiz) => (

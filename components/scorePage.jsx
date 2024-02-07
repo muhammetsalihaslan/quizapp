@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import React from "react";
 
-const ScorePage = ({ isrc, title }) => {
+const ScorePage = ({ isrc, title, score, numberOfQuestion }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -25,8 +25,10 @@ const ScorePage = ({ isrc, title }) => {
                   {title}
                 </span>
               </div>
-              <div className="text-[150px] text-[#313E51]">0</div>
-              <div className="text-[#313E51] text-[25px]">out of 10</div>
+              <div className="text-[150px] text-[#313E51]">{score}</div>
+              <div className="text-[#313E51] text-[25px]">
+                out of {numberOfQuestion}
+              </div>
             </div>
           </div>
           <button
