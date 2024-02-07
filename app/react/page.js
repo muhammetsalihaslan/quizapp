@@ -10,7 +10,11 @@ const ReactQuestion = () => {
   return (
     <div>
       <Navbar title="REACT" src="/images/react-svgrepo-com.svg" />
-      <Question question={filteredQuestions} />
+      <Question
+        question={filteredQuestions}
+        imagesrc={"/images/react-svgrepo-com.svg"}
+        title="REACT"
+      />
     </div>
   );
 };

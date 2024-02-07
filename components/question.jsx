@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import ScorePage from "./scorePage";
 
-const Question = ({ question }) => {
+const Question = ({ question, imagesrc, title }) => {
   const [noq, setNoq] = useState(0);
   const [selected, setSelected] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,7 +45,7 @@ const Question = ({ question }) => {
   return (
     <>
       {Number(noq) > 9 ? (
-        <ScorePage />
+        <ScorePage isrc={imagesrc} title={title} />
       ) : (
         <div className="flex justify-center h-screen mt-[4rem] ">
           {question.map((quiz) => (

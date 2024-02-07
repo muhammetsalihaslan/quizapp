@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import React from "react";
 
-const ScorePage = () => {
+const ScorePage = ({ isrc, title }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -20,13 +20,9 @@ const ScorePage = () => {
           <div className="bg-white w-[500px] h-[400px]   ">
             <div className="flex flex-col justify-center items-center ">
               <div className="flex items-center gap-x-2 mt-10">
-                <Image
-                  src="./images/react-svgrepo-com.svg"
-                  width={50}
-                  height={50}
-                />
+                <Image src={isrc} width={50} height={50} />
                 <span className="font-bold text-[28px] text-[#313E51]">
-                  REACT
+                  {title}
                 </span>
               </div>
               <div className="text-[150px] text-[#313E51]">0</div>
