@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import ScorePage from "./scorePage";
 
-const Question = ({ question, imagesrc, title }) => {
+const Question = ({ quizData, imagesrc, title }) => {
   const [noq, setNoq] = useState(0);
   const [selected, setSelected] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -12,7 +12,8 @@ const Question = ({ question, imagesrc, title }) => {
   const [progressBar, setProgressBar] = useState(10);
   const [score, setScore] = useState(0);
 
-  const numberOfQuestions = question.map((quiz) => quiz.questions.length);
+  const numberOfQuestions = quizData.map((quiz) => quiz.questions.length);
+  const currentQuestion = quizData.map((quiz) => quiz.questions[noq]);
 
   const errorRef = useRef(null);
 
@@ -31,6 +32,10 @@ const Question = ({ question, imagesrc, title }) => {
       setError(true);
       setTimeout(() => setError(false), 2000);
       return;
+    }
+
+    if (selected == currentQuestion?.map((quiz) => quiz.answer)) {
+      setScore(score + 1);
     }
 
     setShowNextQuestion(true);
@@ -56,12 +61,12 @@ const Question = ({ question, imagesrc, title }) => {
         />
       ) : (
         <div className="flex justify-center h-screen mt-[4rem] ">
-          {question.map((quiz) => (
+          {quizData.map((quiz) => (
             <div className="w-3/4 justify-between flex h-3/4 flex-row ">
               <div className=" w-1/2 flex flex-col lg:gap-y-11 ">
                 <div className="flex flex-col gap-y-8">
                   <p className="italic text-[#626C7F]">
-                    Question {noq + 1} of {quiz.questions.length}
+                    Question {noq + 1} of {numberOfQuestions}
                   </p>
                   <p className="text-[36px] font-bold ">
                     {quiz.questions[noq].question}
@@ -118,7 +123,7 @@ const Question = ({ question, imagesrc, title }) => {
                         >
                           {letter}
                         </div>
-                        <div className="text-[28px] text-[black] font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
+                        <div className="text-[20px] text-[black] font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
                           {option}
                         </div>
                         {isSubmitted && isSelected ? (
@@ -143,6 +148,7 @@ const Question = ({ question, imagesrc, title }) => {
                           <div>
                             <Image
                               src="./images/icon-correct.svg"
+                              alt="correct"
                               width={50}
                               height={50}
                             />{" "}

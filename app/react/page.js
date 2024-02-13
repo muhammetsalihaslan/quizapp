@@ -11,7 +11,7 @@ const ReactQuestion = () => {
     <div>
       <Navbar title="REACT" src="/images/react-svgrepo-com.svg" />
       <Question
-        question={filteredQuestions}
+        quizData={filteredQuestions}
         imagesrc={"/images/react-svgrepo-com.svg"}
         title="REACT"
       />
