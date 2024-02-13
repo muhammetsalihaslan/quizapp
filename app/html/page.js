@@ -3,20 +3,20 @@ import Question from "@/components/question";
 import React from "react";
 import data from "../../public/data/data.json";
 
-const ReactQuestion = () => {
+const HtmlQuestion = () => {
   const filteredQuestions = data.quizzes.filter(
-    (quiz) => quiz.title === "REACT"
+    (quiz) => quiz.title === "HTML"
   );
   return (
     <div>
-      <Navbar title="REACT" src="/images/react-svgrepo-com.svg" />
+      <Navbar title="HTML" src="/images/icon-html.svg" />
       <Question
         quizData={filteredQuestions}
         imagesrc={"/images/react-svgrepo-com.svg"}
-        title="REACT"
+        title="HTML"
       />
     </div>
   );
 };
 
-export default ReactQuestion;
+export default HtmlQuestion;

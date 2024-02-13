@@ -1,9 +1,9 @@
 {
   "quizzes": [
     {
-      "title": "REACT",
-      "color": "#FFF1E9",
-      "icon": "/images/react-svgrepo-com.svg",
+      "title": "HTML",
+      "icon": "/images/icon-html.svg",
+      "iconbg": "#FFF1E9",
       "questions": [
         {
           "question": "What does HTML stand for?",
@@ -83,9 +83,9 @@
       ]
     },
     {
-      "title": "NEXTjs",
-      "color": "#E0FDEF",
-      "icon": "/images/nextjs-icon-svgrepo-com.svg",
+      "title": "CSS",
+      "icon": "/images/icon-css.svg",
+      "iconbg": "#E0FDEF",
       "questions": [
         {
           "question": "What does CSS stand for?",
@@ -161,8 +161,8 @@
     },
     {
       "title": "JavaScript",
-      "color": "#EBF0FF",
       "icon": "/images/icon-js.svg",
+      "iconbg": "#EBF0FF",
       "questions": [
         {
           "question": "Which syntax is correct to output 'Hello World' in an alert box?",
@@ -257,9 +257,9 @@
       ]
     },
     {
-      "title": "tailwindcss",
-      "color": "#F6E7FF",
-      "icon": "/images/tailwind-css-svgrepo-com.svg",
+      "title": "Accessibility",
+      "icon": "/images/icon-accessibility.svg",
+      "iconbg": "#F6E7FF",
       "questions": [
         {
           "question": "What does 'WCAG' stand for?",
