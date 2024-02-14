@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col justify-center ">
+      <body className="flex flex-col justify-center">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

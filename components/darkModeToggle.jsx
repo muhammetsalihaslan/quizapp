@@ -7,6 +7,7 @@ const DarkModeToggle = () => {
   const { mode, toggle } = useTheme();
 
   const buttonClassName = mode === "light" ? "ms-1" : "ms-8";
+  console.log(mode);
   return (
     <div className="flex gap-x-2">
       <div>

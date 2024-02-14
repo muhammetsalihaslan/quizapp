@@ -16,11 +16,13 @@
   }
 }
 
-body {
+.light {
   background-image: url("/images/pattern-background-desktop-light.svg");
 
   background-size: cover;
   background-repeat: no-repeat;
+  color: black;
+  height: 100vh;
 }
 
 @media (max-width: 802px) {
@@ -36,4 +38,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
   }
+}
+
+.dark {
+  background-color: #313e51;
+  background-image: url("/images/pattern-background-desktop-dark.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  height: 100vh;
 }
