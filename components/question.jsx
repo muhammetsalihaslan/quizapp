@@ -60,7 +60,7 @@ const Question = ({ quizData, imagesrc, title }) => {
           numberOfQuestion={numberOfQuestions}
         />
       ) : (
-        <div className="flex justify-center h-screen mt-[4rem] ">
+        <div className="flex justify-center  mt-[4rem] ">
           {quizData.map((quiz) => (
             <div className="w-3/4 justify-between flex h-3/4 flex-row ">
               <div className=" w-1/2 flex flex-col lg:gap-y-11 ">

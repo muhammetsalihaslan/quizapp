@@ -33,7 +33,12 @@ export default function Home() {
               href={quiz.title.toLowerCase()}
               className={`flex h-[68px] p-1 items-center gap-x-[5rem] mt-[2rem] rounded-md shadow-md  cursor-pointer ${ClassName}`}
             >
-              <Image src={quiz.icon} width={50} height={50} className="ms-5" />
+              <Image
+                src={quiz.icon}
+                width={50}
+                height={50}
+                className="ms-5 bg-white rounded-md"
+              />
               <div className="text-xl font-bold ">{quiz.title}</div>
             </Link>
           ))}

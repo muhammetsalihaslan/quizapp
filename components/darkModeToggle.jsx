@@ -14,7 +14,7 @@ const DarkModeToggle = () => {
         <Image src="/images/icon-sun-dark.svg" width={30} height={30} />
       </div>
       <div
-        className="border w-[60px] rounded-full bg-[#A729F5] flex items-center cursor-pointer"
+        className=" w-[60px] rounded-full bg-[#A729F5] flex items-center cursor-pointer"
         onClick={toggle}
       >
         <div
