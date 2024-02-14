@@ -1,8 +1,12 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const ThemeContext = createContext();
+
+export const useTheme = () => {
+  return useContext(ThemeContext);
+};
 
 export const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState("light");
