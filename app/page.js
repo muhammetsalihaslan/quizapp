@@ -1,10 +1,15 @@
+"use client";
 import Navbar from "@/components/navbar";
+import { useTheme } from "@/context/ThemeContext";
 
 import data from "@/public/data/data.json";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const { mode } = useTheme();
+
+  const ClassName = mode === "light" ? "bg-white" : "bg-[#3B4D66]";
   return (
     <>
       <Navbar title="Quiz App" />
@@ -26,7 +31,7 @@ export default function Home() {
           {data.quizzes.map((quiz) => (
             <Link
               href={quiz.title.toLowerCase()}
-              className="flex h-[68px] p-1 items-center gap-x-[5rem] mt-[2rem] rounded-md shadow-md  cursor-pointer"
+              className={`flex h-[68px] p-1 items-center gap-x-[5rem] mt-[2rem] rounded-md shadow-md  cursor-pointer ${ClassName}`}
             >
               <Image src={quiz.icon} width={50} height={50} className="ms-5" />
               <div className="text-xl font-bold ">{quiz.title}</div>
