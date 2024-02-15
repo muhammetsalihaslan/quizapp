@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import ScorePage from "./scorePage";
+import { useTheme } from "@/context/ThemeContext";
 
 const Question = ({ quizData, imagesrc, title }) => {
   const [noq, setNoq] = useState(0);
@@ -14,6 +15,10 @@ const Question = ({ quizData, imagesrc, title }) => {
 
   const numberOfQuestions = quizData.map((quiz) => quiz.questions.length);
   const currentQuestion = quizData.map((quiz) => quiz.questions[noq]);
+
+  const { mode } = useTheme();
+
+  const Class = mode === "light" ? "bg-white" : "bg-[#3B4D66]";
 
   const errorRef = useRef(null);
 
@@ -72,7 +77,9 @@ const Question = ({ quizData, imagesrc, title }) => {
                     {quiz.questions[noq].question}
                   </p>
                 </div>
-                <div className="border w-[500px] rounded-full  flex items-center bg-white ">
+                <div
+                  className={`w-[500px] rounded-full  flex items-center ${Class}`}
+                >
                   <span
                     className="bg-[#A729F5] h-[10px] rounded-full 
                 "
@@ -101,11 +108,9 @@ const Question = ({ quizData, imagesrc, title }) => {
                       <li
                         className={
                           isSubmitted
-                            ? `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center  bg-white  p-3 mb-2 pointer-events-none ${borderColor}`
-                            : `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center  bg-white cursor-pointer p-3 mb-2 ${
-                                isSelected
-                                  ? " border-2 border-[#A729F5]"
-                                  : " border"
+                            ? `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center p-3 mb-2 pointer-events-none ${borderColor}   `
+                            : `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center cursor-pointer p-3 mb-2 ${Class} ${
+                                isSelected ? " border-2 border-[#A729F5]" : " "
                               }`
                         }
                         onClick={() => handleOptionClick(option)}
@@ -123,7 +128,7 @@ const Question = ({ quizData, imagesrc, title }) => {
                         >
                           {letter}
                         </div>
-                        <div className="text-[20px] text-[black] font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
+                        <div className="text-[20px]  font-bold w-[350px] ms-10  flex justify-center items-center  text-center">
                           {option}
                         </div>
                         {isSubmitted && isSelected ? (
@@ -160,7 +165,7 @@ const Question = ({ quizData, imagesrc, title }) => {
                 })}
                 {!showNextQuestion ? (
                   <button
-                    className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+                    className="w-[500px]  rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
                     onClick={handleSubmit}
                   >
                     Submit
