@@ -22,19 +22,28 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: black;
-  height: 100vh;
 }
 
 @media (max-width: 802px) {
-  body {
+  .light {
     background-image: url("/images/pattern-background-tablet-light.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .dark {
+    background-image: url("/images/pattern-background-tablet-dark.svg");
     background-size: cover;
     background-repeat: no-repeat;
   }
 }
 @media (max-width: 442px) {
-  body {
+  .light {
     background-image: url("/images/pattern-background-mobile-light.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .dark {
+    background-image: url("/images/pattern-background-tablet-dark.svg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -46,5 +55,4 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  height: 100vh;
 }

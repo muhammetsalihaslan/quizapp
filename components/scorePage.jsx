@@ -14,14 +14,16 @@ const ScorePage = ({ isrc, title, score, numberOfQuestion }) => {
     router.push("/");
   };
   return (
-    <div className="flex justify-center mt-[4rem]  ">
-      <div className="flex justify-between w-3/4">
+    <div className="flex justify-center mt-[4rem]">
+      <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-between w-3/4">
         <div>
-          <div className="text-[50px] ">Quiz component</div>
-          <div className=" font-bold text-[50px]">You scored</div>
+          <div className="text-[30px] lg:text-[50px] ">Quiz component</div>
+          <div className=" font-bold text-[30px] lg:text-[50px]">
+            You scored
+          </div>
         </div>
         <div>
-          <div className={`w-[500px] h-[400px] ${ScoreClass}`}>
+          <div className={`w-[300px] md:w-[500px] h-[400px] ${ScoreClass}`}>
             <div className="flex flex-col justify-center items-center ">
               <div className="flex items-center gap-x-2 mt-10">
                 <Image src={isrc} width={50} height={50} />
@@ -32,7 +34,7 @@ const ScorePage = ({ isrc, title, score, numberOfQuestion }) => {
             </div>
           </div>
           <button
-            className="w-[500px]  rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+            className="w-[300px] lg:w-[500px]  rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
             onClick={handleClick}
           >
             Play Again

@@ -10,10 +10,11 @@ export default function Home() {
   const { mode } = useTheme();
 
   const ClassName = mode === "light" ? "bg-white" : "bg-[#3B4D66]";
+
   return (
     <>
       <Navbar title="Quiz App" />
-      <main className="flex flex-col lg:flex-row lg:justify-center  p-5  h-fit w-screen lg:gap-x-[5rem] lg:mt-[3rem] ">
+      <main className="flex flex-col lg:flex-row lg:justify-center  p-5   lg:gap-x-[5rem] lg:mt-[3rem]">
         <div className=" mt-[5rem]  ">
           <div className="md:flex justify-center  lg:justify-normal lg:flex-col">
             <div className="text-[45px] lg:text-[60px]  font-normal">
