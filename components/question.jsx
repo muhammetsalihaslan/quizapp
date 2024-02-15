@@ -65,20 +65,20 @@ const Question = ({ quizData, imagesrc, title }) => {
           numberOfQuestion={numberOfQuestions}
         />
       ) : (
-        <div className="flex justify-center  mt-[4rem] ">
+        <div className="flex   justify-center  mt-[4rem] ">
           {quizData.map((quiz) => (
-            <div className="w-3/4 justify-between flex h-3/4 flex-row ">
+            <div className="w-3/4 h-3/4 lg:justify-between flex flex-col gap-y-10  lg:gap-y-0  lg:flex-row ">
               <div className=" w-1/2 flex flex-col lg:gap-y-11 ">
                 <div className="flex flex-col gap-y-8">
                   <p className="italic text-[#626C7F]">
                     Question {noq + 1} of {numberOfQuestions}
                   </p>
-                  <p className="text-[36px] font-bold ">
+                  <p className="text-[20px] lg:text-[36px] font-bold ">
                     {quiz.questions[noq].question}
                   </p>
                 </div>
                 <div
-                  className={`w-[500px] rounded-full  flex items-center ${Class}`}
+                  className={`w-[400px] lg:w-[500px] rounded-full mt-10 lg:mt-0  flex items-center ${Class}`}
                 >
                   <span
                     className="bg-[#A729F5] h-[10px] rounded-full 
@@ -108,8 +108,8 @@ const Question = ({ quizData, imagesrc, title }) => {
                       <li
                         className={
                           isSubmitted
-                            ? `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center p-3 mb-2 pointer-events-none ${borderColor}   `
-                            : `w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center cursor-pointer p-3 mb-2 ${Class} ${
+                            ? `w-[400px] lg:w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center p-3 mb-2 pointer-events-none ${borderColor}   `
+                            : `w-[400px] lg:w-[500px] shadow-lg rounded-lg h-fit  flex flex-row items-center cursor-pointer p-3 mb-2 ${Class} ${
                                 isSelected ? " border-2 border-[#A729F5]" : " "
                               }`
                         }
@@ -118,7 +118,7 @@ const Question = ({ quizData, imagesrc, title }) => {
                         <div
                           className={
                             isSubmitted
-                              ? `ms-5 w-[40px] text-[#626C7F] flex justify-center text-[28px] font-bold rounded-l ${bgColor}`
+                              ? ` ms-5 w-[40px] text-[#626C7F] flex justify-center text-[28px] font-bold rounded-l ${bgColor}`
                               : `ms-5 w-[40px] text-[#626C7F]  flex justify-center text-[28px] font-bold rounded-l  ${
                                   isSelected
                                     ? "bg-[#A729F5] text-[white]"
@@ -165,14 +165,14 @@ const Question = ({ quizData, imagesrc, title }) => {
                 })}
                 {!showNextQuestion ? (
                   <button
-                    className="w-[500px]  rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+                    className="w-[400px] lg:w-[500px]  rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
                     onClick={handleSubmit}
                   >
                     Submit
                   </button>
                 ) : (
                   <button
-                    className="w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
+                    className="w-[400px] lg:w-[500px] border rounded-lg bg-[#A729F5] h-[60px] mt-5 text-white text-[28px] font-bold"
                     onClick={handleNext}
                   >
                     Next Question
